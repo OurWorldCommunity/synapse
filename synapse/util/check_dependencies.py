@@ -32,7 +32,9 @@ from typing import Iterable, NamedTuple, Optional
 
 from packaging.requirements import Requirement
 
-DISTRIBUTION_NAME = "matrix-synapse"
+#DISTRIBUTION_NAME = "matrix-synapse"
+#使用matrix的common库替代，咱们没有用pip安装synapse
+DISTRIBUTION_NAME = "matrix-common"
 
 
 __all__ = ["check_requirements"]

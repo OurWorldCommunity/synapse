@@ -238,8 +238,9 @@ def log_failure(
 
 # Version string with git info. Computed here once so that we don't invoke git multiple
 # times.
-SYNAPSE_VERSION = get_distribution_version_string("matrix-synapse", __file__)
-
+#SYNAPSE_VERSION = get_distribution_version_string("matrix-synapse", __file__)
+#咱们没有用pip管理版本，这里会直接booom
+SYNAPSE_VERSION = "OurWorldCommunity_fork"
 
 class ExceptionBundle(Exception):
     # A poor stand-in for something like Python 3.11's ExceptionGroup.
