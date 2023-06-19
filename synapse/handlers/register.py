@@ -201,13 +201,13 @@ class RegistrationHandler:
                         "credentials for that user.",
                         errcode=Codes.FORBIDDEN,
                     )
-
-        if guest_access_token is None and GUEST_USER_ID_PATTERN.fullmatch(localpart):
-            raise SynapseError(
-                400,
-                "Numeric user IDs are reserved for guest users.",
-                errcode=Codes.INVALID_USERNAME,
-            )
+#在mc的用户名规则中，数字用户名是合法的
+#        if guest_access_token is None and GUEST_USER_ID_PATTERN.fullmatch(localpart):
+#            raise SynapseError(
+#                400,
+#                "Numeric user IDs are reserved for guest users.",
+#                errcode=Codes.INVALID_USERNAME,
+#            )
 
     async def register_user(
         self,

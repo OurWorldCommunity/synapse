@@ -2999,4 +2999,5 @@ def find_max_generated_user_id_localpart(cur: Cursor) -> int:
         match = regex.search(user_id)
         if match:
             max_found = max(int(match.group(1)), max_found)
-    return max_found
+#这会让访客的id范围不与mc中合法用户的id重叠（mc中的用户id最多为16个字符）
+    return max_found+1111111111111111
