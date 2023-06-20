@@ -5,7 +5,7 @@
 * 版本检查将失效
 * 依赖检查将失效(这应该不影响pip的依赖处理)
 
-### 适应MC玩家
+### 适应MC玩家id
 * 使synapse允许注册数字用户  
 * 将访客uid调整至大于16个字符，以避开mc的玩家id
 
@@ -21,8 +21,22 @@ cd synapse
 ```
 完成~  
 可以使用`python -m synapse.app.homeserver`测试  
-** 之后对git上的版本进行修改后在运行环境中使用`git pull`即可 **
+*一些例子:*
+```
+python -m synapse._scripts.synctl start ./work_dir/homeserver.yaml
 
+python -m synapse._scripts.synctl stop ./work_dir/homeserver.yaml
+
+python -m synapse._scripts.synapse_port_db --sqlite-database ./work_dir/old.db \
+    --postgres-config ./work_dir/homeserver.yaml
+
+python -m synapse.app.homeserver \
+    --server-name matrix.smyhw.online \
+    --config-path ./work_dir/homeserver.yaml \
+    --generate-config \
+    --report-stats=yes
+```
+**之后对git上的版本进行修改后在运行环境中使用`git pull`即可**  
 # 注:
 * 注意需要在git克隆出来的目录中执行`python -m`相关命令，因为实际python包位于项目目录中的`synapse`子目录下
 * 注意配置文件位置，不建议直接放在项目根目录下，小心手残用git给盖掉(
