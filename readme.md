@@ -42,3 +42,16 @@ python -m synapse.app.homeserver \
 * 注意配置文件位置，不建议直接放在项目根目录下，小心手残用git给盖掉(
 * 将项目目录扔进`PYTHONPATH`的方案不可行，会导致命名重复?
 * 将项目目录扔进`site-packages`的方案可行，但是注意只能用软链接把子目录`synapse`扔进去，原因同第一条
+
+# 如何升级
+1. 需要先升级依赖  
+`pip install -U "matrix-synapse[postgres]"=="1.90.0"`
+是的，这里手动指定了版本号，也建议始终从官方仓库查看最新版本号并在升级依赖时手动指，*以防止pip反向升级(*  
+`pip uninstall "matrix-synapse[postgres]"`
+和安装同理，卸载pip安装的本体
+
+2. 更新本体  
+`git pull` 通过git拉取本体
+
+3. 完成  
+启动matrix，更新完成
